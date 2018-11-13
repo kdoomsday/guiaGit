@@ -1,4 +1,5 @@
 #+TITLE:Guia fundamentos Git
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css" />
 * Términos de importancia
 ** Git init
    Inicializar un repositorio git, típicamente local. Se utiliza cuando no se
@@ -164,5 +165,22 @@
   8. Regresar a la rama de *develop* (~git checkout develop~)
   9. Integrar los cambios (~git merge --ff-only nuevoFeature~)
   10. Eliminar la rama ya integrada (~git branch -D nuevoFeature~)
-* La guía sencilla de Git
-  Se puede conseguir en [[http://rogerdudler.github.io/git-guide/index.es.html][este link]].
+* Ignorar archivos del proyecto
+  A menudo es deseable que la herramienta no tome en cuenta ciertos archivos del
+  proyecto (típicamente los archivos generados al compilar o semejantes). Para
+  este fin existe el archivo *.gitignore*. Dentro del mismo se configuran
+  reglas de cuáles archivos no se tomarán en cuenta al momento de calcular el
+  estado del proyecto.
+
+  Un *.gitignore* minimal podría contener lo siguiente:
+#+BEGIN_SRC gitignore
+  # Ignorar los archivos generados del proyecto (todo el directorio target)
+  target/
+
+  # Ignorar los archivos generados por el compilador de java
+  *.class
+
+  # Archivos de log
+  *.log
+#+END_SRC
+
